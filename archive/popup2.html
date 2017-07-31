@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<link rel="stylesheet" type="text/css" href="styles/popup2.css"/>
+</head>
+<body>
+	<div ng-app="abook" class="layout_root">
+		<div ng-controller="DevController">
+			<button ng-click="openPopup()">Open</button>
+		</div>
+
+		<!-- Manage public and private area -->
+		<div ng-controller="UserController">
+			<div ng-switch on="!!profile.login">
+				<div ng-switch-when="false">
+					<p>public</p>
+					<login-form></login-form>
+					<login-form2></login-form2>
+					<button ng-click="login()">Login</button>
+				</div>
+				<div ng-switch-when="true">
+					<p>private</p>
+					<p>{{profile.login}}</p>
+					<button ng-click="logout()">Logout</button>
+				</div>
+			</div>
+		</div>
+	
+		<div class="node-heap" ng-controller="popups">
+			<abook-popup-wrap class="" ng-repeat="popup in collection" on-close="closePopup(popup)" content="popup.content" config="popup.config"></abook-popup-wrap>
+		</div>
+	</div>
+	<script src="scripts/global.js"></script>
+	<script src="scripts/angular.min.js"></script>
+	<script src="scripts/popup2.js"></script>
+</body>
+</html>

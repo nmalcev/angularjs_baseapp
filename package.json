@@ -1,0 +1,22 @@
+{
+  "name": "angularjs_baseapp",
+  "version": "1.0.0",
+  "description": "Base application on Angular JS",
+  "main": "index.js",
+  "scripts": {
+    "server": "http-server ./public -p 9060"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nmalcev/angularjs_baseapp.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nmalcev/angularjs_baseapp/issues"
+  },
+  "homepage": "https://github.com/nmalcev/angularjs_baseapp#readme",
+  "devDependencies": {
+    "http-server": "^0.10.0"
+  }
+}

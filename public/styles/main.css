@@ -1,0 +1,177 @@
+html{ font: 13px/18px Arial; }	
+body{ margin: 0; }
+button, input{ font-family: inherit; }
+table{ border-collapse: collapse; }
+
+html, body{height: 100%;}
+a{display: inline-block; vertical-align: middle; text-decoration: none;}
+a:hover{text-decoration: underline;}
+label{cursor: pointer;display: inline-block;vertical-align: middle;}
+button:not(:disabled){cursor: pointer;}
+/*
+	Helpers
+*/
+.h-clearfix:before, 
+.h-clearfix:after{content: "";display: table;}
+.h-clearfix:after{clear: both;}
+.h-vertical, 
+.h-vertical-middlle{display: inline-block;vertical-align: middle;}
+.h-vertical-middlle{width: 0;height: 100%;}
+/*
+	POPUPS
+*/
+.popup-wrap{
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	overflow-y: scroll;
+	background: rgba(0,0,0, 0.8);
+	text-align: center;
+}
+.popup-wrap:after{
+	content: "";
+	display: inline-block;
+	vertical-align: middle;
+	width: 0;
+	height: 100%;
+}
+.popup-inner{
+	position: relative;
+	display: inline-block;
+	vertical-align: middle;
+	width: 800px;
+	text-align: left;
+	background: #fff;
+}
+.popup-close { position: absolute; top: 0; right: 0; cursor: pointer;}
+
+/*
+	LAYOUT
+*/
+.layout{
+	display: table;
+	position: relative;
+	width: 100%;
+	height: 100%;
+	box-sizing: border-box;
+	padding: 40px 0;
+}
+.layout-footer{
+	position: absolute;
+	left: 0;
+	bottom: 10px;
+	width: 100%;
+	height: 30px;
+}
+.layout-footer-wrap{
+	margin: 0 40px;
+	height: 100%;
+}
+
+.layout-top{
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 40px;
+	background: #efefef;
+}
+.layout-top-wrap{
+	margin: 0 0 0 40px;
+	height: 100%;
+}
+.layout-footer_logo{
+	height: 100%;
+	width: 100px;
+	background: #bbb;
+	cursor: pointer;
+}
+.layout-footer_link{
+	float: right;
+	margin: 0 0 0 16px;
+	color: #ababab;
+	line-height: 30px;
+}
+.layout-top_btn{
+	float: right;
+	width: 40px;
+	height: 40px;
+	border-left: 1px solid #ddd;
+	cursor: pointer;
+}
+.layout-content{
+	height: calc(100% - 40px);
+	margin: 20px 40px;
+}
+
+
+/*
+	LOGIN PAGE
+*/
+.login-page-wrap{
+	width: 100%;
+	height: 100%;
+}
+.login-page{
+	position: relative;
+	display: table-cell;
+	width: 100%;
+	height: 100%;
+}
+.login-wrap{
+	display: flex;
+	flex-direction: row;
+	position: absolute;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+}
+.login-wrap_cell{
+	flex: 1 1 50%;
+	text-align: center;
+}
+.login-footer-wrap{
+	margin: 0 100px;
+	height: 100%;
+}
+
+/*
+	LOGIN Form
+*/
+.login-form{
+	display: inline-block;
+	vertical-align: middle;
+	text-align: left;
+}
+.login-form_halfspace{
+	display: inline-block;
+	vertical-align: middle;
+	width: 50%;
+}
+.login-form_row{
+	margin: 0 0 12px 0;
+}
+.login-form_row > input{
+	width: 100%;
+	box-sizing: border-box;
+}
+.login-form[disabled]{
+	pointer-events: none;
+}
+.login-form[disabled] button,
+.login-form[disabled] input{
+	opacity: 0.5;
+}
+
+/*
+	LOGIN Form
+*/
+.errormes{
+	padding: 8px;
+	background: #eaeaea;
+	color: #aaa;
+	margin: 0 0 8px 0;
+}
