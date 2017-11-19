@@ -143,7 +143,6 @@ log_app.controller('LoginController', ['$scope', 'UserProfile', function LoginCo
 log_app.controller('DashboardController', ['$scope', 'UserProfile', '$location', function DashboardController($scope, $profile, $location){
 	$scope.profile = $profile.get();	
 	$scope.logout = function(){
-		console.log('LOGOUT');
 		$profile.logout();
 	};
 	$scope.gotoUsersPage = function(){
@@ -154,7 +153,6 @@ log_app.controller('DashboardController', ['$scope', 'UserProfile', '$location',
 log_app.controller('UsersController', ['$scope', 'UserProfile', '$location', function DashboardController($scope, $profile, $location){
 	$scope.profile = $profile.get();	
 	$scope.logout = function(){
-		console.log('LOGOUT');
 		$profile.logout();
 	};
 	$scope.gotoDasboardPage = function(){
@@ -166,7 +164,7 @@ log_app.controller('UsersController', ['$scope', 'UserProfile', '$location', fun
 //===========================================
 // UserProfile - shared store to profile data
 //===========================================
-log_app.factory('UserProfile', ['$http', '$location', function UserProfile($http, $location){
+log_app.factory('UserProfile', ['$http', '$location', '$timeout',function UserProfile($http, $location, $timeout){
 	var _userData = {};
 
 	return {
@@ -228,7 +226,10 @@ log_app.factory('UserProfile', ['$http', '$location', function UserProfile($http
 			if(conf.login == 'admin'){
 				_userData.login = conf.login;
 				_userData.group = 'user';	
-				$location.url('/dashboard');
+
+				$timeout(function(){
+					$location.url('/dashboard');
+				}, 100);
 			}else{
 				next();
 			}
@@ -252,7 +253,10 @@ log_app.factory('UserProfile', ['$http', '$location', function UserProfile($http
 			// Fake code:
 			_userData.login = null;
 			_userData.group = null;
-			$location.url('/login');
+
+			$timeout(function(){
+				$location.url('/login');
+			});
 		},
 		get: function(){
 			return _userData;
@@ -273,12 +277,12 @@ log_app.factory('UserProfile', ['$http', '$location', function UserProfile($http
 log_app.directive('loginForm', function counter() {
 	return {
 		restrict: 'E',
-		transclude: true,
 		scope: {},
 		bindings: {},
 		controller: ['$scope','$element','$attrs', 'UserProfile', function($scope, $e, $attrs, $profile){
 			this.authorizationFailed = false;
 		    this.onsubmit = function(onFail){
+		    	console.log('Submit login form');
 				$profile.login({
 					login: this.formLogin,
 					password: this.formPassword,

@@ -145,6 +145,7 @@ button:not(:disabled){cursor: pointer;}
 	display: inline-block;
 	vertical-align: middle;
 	text-align: left;
+	width: 200px;
 }
 .login-form_halfspace{
 	display: inline-block;
